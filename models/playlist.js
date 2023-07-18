@@ -1,6 +1,5 @@
-// create playlist model using mongoose
-
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const playlistSchema = new Schema({
@@ -8,7 +7,7 @@ const playlistSchema = new Schema({
         type: String,
         required: true,
     },
-    artists: {
+    artist: {
         type: String,
         required: true,
     },
@@ -20,8 +19,10 @@ const playlistSchema = new Schema({
         type: Number,
         default: 0,
     },
-});
+}, { timestamps: true , versionKey: false});
 
-const Playlist = mongoose.model('Playlist', playlistSchema);
+// const Playlist = mongoose.model('Playlist', playlistSchema);
+// export default Playlist;
+// export default mongoose.model('Playlist', playlistSchema);
 
-export default Playlist;
+module.exports = mongoose.model('Playlist', playlistSchema);
