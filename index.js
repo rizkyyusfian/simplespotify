@@ -20,10 +20,10 @@ const cors = require('cors');
 const mongoString = process.env.DATABASE_URL;
 
 mongoose.connect(mongoString);
-const databse = mongoose.connection;
+const database = mongoose.connection;
 
-databse.on('error', (error) => console.log(error));
-databse.once('connected', () => console.log('Connected to database'));
+database.on('error', (error) => console.log(error));
+database.once('connected', () => console.log('Connected to database'));
 
 const app = express();
 app.use(cors());

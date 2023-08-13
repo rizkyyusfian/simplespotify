@@ -2,7 +2,6 @@
 // import Playlist from '../models/playlist.js';
 const Express = require('express');
 const Playlist = require('../models/playlist.js');
-const playlist = require('../models/playlist.js');
 const router = Express.Router();
 
 
@@ -37,7 +36,7 @@ router.post('/playlist', (req, res) => {
 router.get('/playlist', (req, res) => {
     const { sort } = req.query; // Get the sort query parameter
     let sortedPlaylist = []; // Create a new array to store the sorted playlist
-    playlist.find().then((songs) => {
+    Playlist.find().then((songs) => {
         if (sort === 'most-played') {
             sortedPlaylist = [...songs].sort((a, b) => b.playCount - a.playCount); // Sort the playlist by play count
         } else {
